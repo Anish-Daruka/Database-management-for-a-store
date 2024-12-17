@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Transaction_id</th>
+            <th scope="col">transaction date</th>
+            <th scope="col">transaction amount</th>
+            <th scope="col">transaction category</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for tr in transactions %}
+            <tr>
+                <td>{{ tr.t_ID }}</td>
+                <td>{{ tr.t_date }}</td>
+                <td>{{ tr.t_amount }}</td>
+                <td>{{ tr.t_category }}</td>
+            </tr>
+            {% endfor %}
+          
+          
+        </tbody>
+      </table>
+
+
+      {% if customers==1 %}
+      <form action="/transactions" method="POST">
+        <h2> Add Transaction </h2>
+        <div class="container my-3">
+          <label for="itemSKU" class="form-label">Customer ID</label>
+          <input type="text" class="form-control" name="c_ID" id="transactionID" aria-describedby="transactionIDHelp">
+        </div>
+        <div class="mb-3">
+          <label for="itemName" class="form-label">Transaction Amount</label>
+          <input type="text" class="form-control" name="T_amount" id="itemName">
+        </div>
+        <div class="mb-3">
+          <label for="itemPrice" class="form-label">Transaction Category</label>
+          <input type="text" class="form-control" name="T_category" id="itemPrice">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+        
+      {% endif %}
+</body>
+</html>

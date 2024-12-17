@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Item_SKU</th>
+            <th scope="col">Item_Name</th>
+            <th scope="col">Item_Price</th>
+            <th scope="col">Item_Qty</th>        
+          </tr>
+        </thead>
+        <tbody>
+            {% for in in inventory %}
+            <tr>
+                <td>{{ in.Item_SKU }}</td>
+                <td>{{ in.Item_Name }}</td>
+                <td>{{ in.Item_Price }}</td>
+                <td>{{ in.Item_Qty }}</td>
+            </tr>
+            {% endfor %}
+          
+          
+        </tbody>
+      </table>
+
+    <form action="/inventory" method="POST">
+      <h2> Add Item </h2>
+      <div class="container my-3">
+        <label for="itemSKU" class="form-label">SKU</label>
+        <input type="text" class="form-control" name="Item_SKU" id="itemSKU" aria-describedby="skuHelp">
+      </div>
+      <div class="mb-3">
+        <label for="itemName" class="form-label">Name</label>
+        <input type="text" class="form-control" name="Item_Name" id="itemName">
+      </div>
+      <div class="mb-3">
+        <label for="itemPrice" class="form-label">Price</label>
+        <input type="text" class="form-control" name="Item_Price" id="itemPrice">
+      </div>
+      <div class="mb-3">
+        <label for="itemQty" class="form-label">Quantity</label>
+        <input type="text" class="form-control" name="Item_Qty" id="itemQty">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</body>
+</html>

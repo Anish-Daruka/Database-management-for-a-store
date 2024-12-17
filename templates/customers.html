@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">CustomerID</th>
+            <th scope="col">CustomerName</th>
+            <th scope="col">CustomerEmail</th>
+            <th scope="col">CustomerContact</th>
+            <th scope="col">transaction</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for customer in customers %}
+            <tr>
+                <td>{{ customer.c_ID }}</td>
+                <td>{{ customer.c_name }}</td>
+                <td>{{ customer.c_email }}</td>
+                <td>{{ customer.c_contact }}</td>
+                <td>                  
+                    <a href="/customer//{{ customer.c_ID }}/transactions">View Transaction</a>
+                </td>
+              </tr>
+            {% endfor %}     
+        </tbody>
+      </table>
+
+      {% if check==1 %}
+      <form action="/addcustomer" method="POST">
+        <h2> Add Customer </h2>
+        <div class="container my-3">
+          <label for="customerName" class="form-label">Customer Name</label>
+          <input type="text" class="form-control" name="c_name" id="customerName" aria-describedby="customerNameHelp">
+        </div>
+        <div class="mb-3">
+          <label for="customerEmail" class="form-label">Customer Email</label>
+          <input type="email" class="form-control" name="c_email" id="customerEmail">
+        </div>
+        <div class="mb-3">
+          <label for="customerContact" class="form-label">Customer Contact</label>
+          <input type="text" class="form-control" name="c_contact" id="customerContact">
+        </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+        
+      {% endif %}
+
+      
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Staff Details</h1>
+    <ul>
+        {% for member in staff %}
+            <li>ID: {{ member.s_ID }}</li>
+            <li>Name: {{ member.s_name }}</li>
+            <li>Email: {{ member.s_email }}</li>
+            <li>Password: {{ member.s_password }}</li>
+            <hr>
+        {% endfor %}
+    </ul>
+    <br>
+    <button onclick="location.href='/transactions'">View and Add Transactions</button><br>
+    <button onclick="location.href='/addcustomer'">View and add new customer</button>
+
+
+
+
+    
+      
+
+
+</body>
+</html>
